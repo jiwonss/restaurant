@@ -17,7 +17,7 @@ abstract  public class MemoryDbRepositoryAbstract<T extends MemoryDbEntity> impl
 
     @Override
     public T save(T entity) {
-        var optionalEntity = db.stream().filter(it -> it.getIndex() == index).findFirst();
+        var optionalEntity = db.stream().filter(it -> it.getIndex() == entity.getIndex()).findFirst();
 
         if(optionalEntity.isEmpty()){
             // db에 데이터가 없는 경우
